@@ -206,3 +206,10 @@ button svg {
   z-index: 99999;
   transform: scale(0);
 }
+
+img {
+  position: fixed;
+  bottom: 0;
+  display: none;
+  width: 150px;
+}

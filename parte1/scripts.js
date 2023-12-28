@@ -1,5 +1,16 @@
 const smallestCircleWidth = 20; //Tamaño del círculo más pequeño, en porcentaje del contenedor
 const theme = "Minions";
+const gifs = [
+  "minion1.gif",
+  "minion2.gif",
+  "minion3.gif",
+  "minion4.gif",
+  "minion5.gif",
+  "minion6.gif",
+  "minion7.gif",
+  "minion8.gif",
+  "minion9.gif",
+];
 
 class colorDefinition {
   constructor(name, value) {
@@ -88,6 +99,25 @@ function clickHandler() {
   this.style.backgroundColor = select.value;
 }
 
+function showRandomGif() {
+  const imgElement = document.getElementById("randomGif");
+  // Elegir una imagen al azar
+  var gif = "./img/" + gifs[Math.floor(Math.random() * gifs.length)];
+
+  // Elegir una posición X aleatoria
+  var x = Math.floor(Math.random() * window.innerWidth);
+
+  // Setear la imagen y la posición
+  imgElement.src = gif;
+  imgElement.style.left = x + "px";
+  imgElement.style.display = "block";
+
+  // Esconder el minion animado después de 3 segundos
+  setTimeout(function () {
+    imgElement.style.display = "none";
+  }, 3000);
+}
+
 const title = document.getElementsByTagName("h1")[0];
 const select = document.getElementsByTagName("select")[0];
 const circlesDiv = document.getElementsByClassName("circles-section")[0];
@@ -107,3 +137,5 @@ resetButton.addEventListener("click", () => {
     element.style.backgroundColor = "transparent";
   });
 });
+
+setInterval(showRandomGif, 20000 + Math.random() * 10000);
