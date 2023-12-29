@@ -1,15 +1,16 @@
 /*Incorporar un link con la URL del sitio en el cual esté basado la paleta*/
 /*https://coolors.co/fce03f-0b5d85-ed2025-93abad-fbcebe*/
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
 @font-face {
   font-family: "Minions font";
-  src: url('./fonts/Bauhaus.TTF');
+  src: url("./fonts/Bauhaus.TTF");
 }
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
   line-height: 1.1;
 }
 
@@ -36,7 +37,11 @@ body {
   height: 100vh;
   padding: 0;
   background: var(--red-cmyk);
-  background: linear-gradient(0deg, var(--lapis-lazuli) 0%, var(--cadet-gray) 100%);
+  background: linear-gradient(
+    0deg,
+    var(--lapis-lazuli) 0%,
+    var(--cadet-gray) 100%
+  );
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,16 +51,16 @@ body {
   background-color: #fff;
   max-width: 1200px;
   border-radius: 10px;
-  box-shadow: 0 8px 20px 0 rgba(0,0,0,.55);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.55);
   margin: 175px 0;
   position: relative;
   display: flex;
 }
 
 h1 {
-  font-family: 'Minions font';
-  font-weight:normal;
-  font-size: 58px;
+  font-family: "Minions font";
+  font-weight: normal;
+  font-size: 52px;
   padding: 6px 0;
   margin-bottom: 34px;
   color: var(--school-bus-yellow);
@@ -67,9 +72,10 @@ h1 {
   background: var(--lapis-lazuli);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 20px 40px;
+  padding: 20px;
   position: relative;
-  width: 100%;
+  min-width: 320px;
+  width: 50%;
   color: #fff;
 }
 
@@ -101,33 +107,31 @@ button {
     rgba(0, 0, 0, 0.2) 30%,
     rgba(0, 0, 0, 0)
   );
-  box-shadow:
-    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
     inset -2px -2px 3px rgba(0, 0, 0, 0.6);
-  transition: background .3s;
+  transition: background 0.3s;
 }
 
-button:hover, button:focus {
-    background: var(--red-cmyk);
-    border-color: var(--red-cmyk);;
+button:hover,
+button:focus {
+  background: var(--red-cmyk);
+  border-color: var(--red-cmyk);
 }
 
 button svg {
   position: relative;
-  top: .125em;
+  top: 0.125em;
   height: 1em;
   width: 1em;
   color: #fff;
-  transition: fill .3s;
+  transition: fill 0.3s;
 }
 
 .right-container {
   padding: 40px 40px;
   position: relative;
-  width: 100%;
+  width: 50%;
 }
-
-
 
 .circles-section {
   position: relative;
@@ -145,9 +149,9 @@ button svg {
 }
 
 .control input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
 .control_indicator {
@@ -162,19 +166,25 @@ button svg {
 }
 .control:hover input ~ .control_indicator,
 .control input:focus ~ .control_indicator {
-    background: var(--cadet-gray);
+  background: var(--cadet-gray);
 }
 
 .control input:checked ~ .control_indicator {
-    background: var(--cadet-gray);
+  background: var(--cadet-gray);
 }
 
 .control input:checked:focus ~ .control_indicator {
   background: var(--cadet-gray);
 }
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .control_indicator:after {
   box-sizing: unset;
-  content: '';
+  content: "";
   position: absolute;
   display: none;
 }
@@ -191,7 +201,7 @@ button svg {
   transform: rotate(45deg);
 }
 .control-checkbox .control_indicator::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   left: 0;
@@ -212,4 +222,25 @@ img {
   bottom: 0;
   display: none;
   width: 150px;
+}
+
+.circles-section div {
+  height: 0px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: transparent;
+  pointer-events: all;
+}
+
+/* Si la resolución es menor a 500px, cambiar el color de todos los círculos a gris */
+@media only screen and (max-width: 500px) {
+  .circles-section div {
+    background-color: #707070 !important; /*Pongo important para que sobrescriba los colores que puso el usuario al clickear los círculos*/
+    /*Ignorar cualquier tipo de actividad en los mismos*/
+    pointer-events: none;
+  }
 }

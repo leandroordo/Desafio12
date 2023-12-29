@@ -58,24 +58,17 @@ function createCircles(howMany, where, clickEventFunction) {
   let widthPercentage = 100;
   let widthDecrease = (100 - smallestCircleWidth) / (howMany - 1);
 
-  // Create the circles
+  // Crear los círculos con un for
   for (let i = 0; i < howMany; i++) {
-    // Create a new div for the circle
+    // Cada círculo es un div
     let circle = document.createElement("div");
 
-    // Style the circle
+    // Setear el tamaño y asignarle la misma función para el click
     circle.style.width = widthPercentage + "%";
-    circle.style.height = "0";
     circle.style.paddingBottom = widthPercentage + "%";
-    circle.style.borderRadius = "50%";
-    circle.style.position = "absolute";
-    circle.style.top = "50%";
-    circle.style.left = "50%";
-    circle.style.transform = "translate(-50%, -50%)";
-    circle.style.border = "1px solid black";
     circle.addEventListener("click", clickEventFunction);
 
-    // Add the circle to the where div
+    // Agregar el nuevo círculo al div where
     where.appendChild(circle);
 
     // Decrease the width percentage for the next circle
@@ -122,6 +115,7 @@ const title = document.getElementsByTagName("h1")[0];
 const select = document.getElementsByTagName("select")[0];
 const circlesDiv = document.getElementsByClassName("circles-section")[0];
 const resetButton = document.getElementsByTagName("button")[0];
+const checkBox = document.getElementsByTagName("input")[0];
 
 appendTheme(theme, title);
 loadColors(colorDefinitionArray, select);
@@ -139,3 +133,14 @@ resetButton.addEventListener("click", () => {
 });
 
 setInterval(showRandomGif, 20000 + Math.random() * 10000);
+
+//Agregar evento resize para poder deshabilitar controles
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 500) {
+    select.disabled = true;
+    checkBox.disabled = true;
+  } else {
+    select.disabled = false;
+    checkBox.disabled = false;
+  }
+});
