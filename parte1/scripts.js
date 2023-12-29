@@ -66,6 +66,7 @@ function createCircles(howMany, where, clickEventFunction) {
     // Setear el tamaño y asignarle la misma función para el click
     circle.style.width = widthPercentage + "%";
     circle.style.paddingBottom = widthPercentage + "%";
+
     circle.addEventListener("click", clickEventFunction);
 
     // Agregar el nuevo círculo al div where

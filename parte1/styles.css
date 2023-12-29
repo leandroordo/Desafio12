@@ -14,10 +14,6 @@ html {
   line-height: 1.1;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 /*Definir una paleta de 4 colores*/
 /* CSS HEX */
 body {
@@ -49,20 +45,22 @@ body {
 
 .container {
   background-color: #fff;
-  max-width: 1200px;
   border-radius: 10px;
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.55);
-  margin: 175px 0;
+  max-width: 1200px;
+  margin: 75px 20px;
   position: relative;
   display: flex;
+  flex-grow: 1;
 }
 
 h1 {
   font-family: "Minions font";
   font-weight: normal;
-  font-size: 52px;
+  font-size: 42px;
   padding: 6px 0;
   margin-bottom: 34px;
+  overflow: hidden;
   color: var(--school-bus-yellow);
   line-height: 1;
   -webkit-text-stroke: 1px var(--red-cmyk);
@@ -74,24 +72,30 @@ h1 {
   border-bottom-left-radius: 10px;
   padding: 20px;
   position: relative;
-  min-width: 320px;
   width: 50%;
   color: #fff;
 }
 
-.grid-form {
-  display: grid;
+.form {
+  display: flex;
+  flex-direction: column;
   grid-gap: 16px;
   max-width: 300px;
   font-size: 1.3rem;
 }
 
+.row {
+  margin-bottom: 4px;
+}
+
 select {
   font-size: 1em;
   line-height: 3;
+  max-width: 100%;
 }
 
 button {
+  width: 100%;
   border: 0;
   line-height: 2.5;
   padding: 6px;
@@ -128,7 +132,7 @@ button svg {
 }
 
 .right-container {
-  padding: 40px 40px;
+  padding: 20px;
   position: relative;
   width: 50%;
 }
