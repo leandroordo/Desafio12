@@ -24,7 +24,6 @@ const colorDefinitionArray = [
   new colorDefinition("Minion blue", "#0b5d85ff"),
   new colorDefinition("Minion despicable me", "#ed2025ff"),
   new colorDefinition("Minion Gru gray", "#93abadff"),
-  new colorDefinition("Red", "red"),
 ];
 
 function appendTheme(themeName, where) {
